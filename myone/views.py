@@ -16,7 +16,8 @@ def questions(request, id):
 
 
 def index(request):
-    return TemplateResponse(request,  "index.html")
+    data = {"header":"Metanit", "message":"My first message to Django"}
+    return TemplateResponse(request,  "index.html", context=data)
 
 
 def user(request):
