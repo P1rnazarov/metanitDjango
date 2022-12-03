@@ -3,7 +3,11 @@ from django.shortcuts import render
 from django.template.response import TemplateResponse
 
 
-def index(request, n):
-    name = "Otabek"
-    data = {"n" : n}
+def index(request):
+    data = {"n", 5}
+    return TemplateResponse(request, "index.html", context=data)
+
+
+def info(request, n):
+    data = {"n": n}
     return TemplateResponse(request, "index.html", context=data)
