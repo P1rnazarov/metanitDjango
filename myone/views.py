@@ -4,24 +4,5 @@ from django.template.response import TemplateResponse
 
 
 def index(request):
-    data = {"header": "Metanit", "message": "My first message to Django"}
+    data = {"n": 5}
     return TemplateResponse(request, "index.html", context=data)
-
-
-def send(request):
-    header = "Данные пользователя"  # обычная переменная
-    langs = ["Python", "Java", "C#"]  # список
-    user = {"name": "Tom", "age": 23}  # словарь
-    address = ("Абрикосовая", 23, 45)  # кортеж
-
-    data = {"header": header, "langs": langs, "user": user, "address": address}
-
-    return TemplateResponse(request, "index_2.html", context=data)
-
-
-def sendObject(request):
-    return render(request, "index_3.html", context={"person": Person("Tom")})
-
-class Person:
-    def __init__(self, name):
-        self.name = name  # имя человека
