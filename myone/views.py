@@ -6,6 +6,8 @@ from django.template.response import TemplateResponse
 def index(request):
     data = {"header": "Metanit", "message": "My first message to Django"}
     return TemplateResponse(request, "index.html", context=data)
+
+
 def send(request):
     header = "Данные пользователя"  # обычная переменная
     langs = ["Python", "Java", "C#"]  # список
@@ -15,3 +17,11 @@ def send(request):
     data = {"header": header, "langs": langs, "user": user, "address": address}
 
     return TemplateResponse(request, "index_2.html", context=data)
+
+
+def sendObject(request):
+    return render(request, "index_3.html", context={"person": Person("Tom")})
+
+class Person:
+    def __init__(self, name):
+        self.name = name  # имя человека
